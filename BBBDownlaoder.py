@@ -46,14 +46,14 @@ def mp4_processor(path, _id):
     platform = get_platform()
 
     if platform == "linux":
-        gen_audio_cmd = "ffmpeg -i " + fpath + "webcams.webm -vn -acodec copy " + fpath + "audio_out.opus"
-        prep_mp4_cmd = "ffmpeg -i " + fpath + "deskshare.webm -i " + fpath + "audio_out.opus -map 0:v -map 1:a -c copy -y " + fpath + _id + ".webm"
+        gen_audio_cmd = "ffmpeg -i " + path + "webcams.webm -vn -acodec copy " + path + "audio_out.opus"
+        prep_mp4_cmd = "ffmpeg -i " + path + "deskshare.webm -i " + path + "audio_out.opus -map 0:v -map 1:a -c copy -y " + path + _id + ".webm"
         os.system(gen_audio_cmd)
         os.system(prep_mp4_cmd)
 
     elif platform == "win32" or platform == "windows" :
-        gen_audio_cmd = ".\\bin\\ffmpeg.exe -i " + fpath + "webcams.webm -vn -acodec copy " + fpath + "audio_out.opus"
-        prep_mp4_cmd = ".\\bin\\ffmpeg.exe -i " + fpath + "deskshare.webm -i " + fpath + "audio_out.opus -map 0:v -map 1:a -c copy -y " + fpath + _id + ".webm"
+        gen_audio_cmd = ".\\bin\\ffmpeg.exe -i " + path + "webcams.webm -vn -acodec copy " + path + "audio_out.opus"
+        prep_mp4_cmd = ".\\bin\\ffmpeg.exe -i " + path + "deskshare.webm -i " + path + "audio_out.opus -map 0:v -map 1:a -c copy -y " + path + _id + ".webm"
         os.system(gen_audio_cmd)
         os.system(prep_mp4_cmd)
 
@@ -63,7 +63,6 @@ def mp4_processor(path, _id):
 
 def cleanup(path):
     platform = get_platform()
-    fpath
     if platform == "linux" or platform == "darwin":
         rm_audio_cmd = "rm -rf " + path + "audio_out.opus"
         rm_deskshare_cmd = "rm -rf " + path + "deskshare.webm"
