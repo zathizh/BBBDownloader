@@ -5,4 +5,4 @@ Download BigBlueButton Conference Presentations
 python -m pip install requests 
 
 # Example 
-python BBBDownlaoder.py -d <Destination> -u <URL>
+python BBBDownlaoder.py -u <URL>
