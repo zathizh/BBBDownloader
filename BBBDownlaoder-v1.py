@@ -17,7 +17,7 @@ def get_platform():
 def get_separator():
     platform = get_platform()
     sep = ""
-    if platform == "linux" or "darwin" :
+    if platform == "linux" or platform == "darwin" :
         sep = "/"
     elif platform == "win32" or platform == "windows" :
         sep = "\\"
@@ -92,8 +92,7 @@ def main():
 
     meeting_deskshare_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "/deskshare/deskshare.webm"
     meeting_webcam_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "/video/webcams.webm"
-    #print(meeting_deskshare_url)
-    #print(meeting_webcam_url)
+
     meeting_id = url.split("-")[1]
 
     path = "output" + get_separator() + meeting_id + get_separator()
