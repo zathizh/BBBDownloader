@@ -90,10 +90,10 @@ def main():
     args = parser.parse_args()
     url  = args.url
 
-    meeting_deskshare_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "/deskshare/deskshare.webm"
-    meeting_webcam_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "/video/webcams.webm"
+    meeting_deskshare_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "deskshare/deskshare.webm"
+    meeting_webcam_url = str(re.sub("playback\/presentation\/\d*\.?\d*\/", "presentation/", url)) + "video/webcams.webm"
 
-    meeting_id = url.split("-")[1]
+    meeting_id = url.split("-")[1][:-1]
 
     path = "output" + get_separator() + meeting_id + get_separator()
     create_directory(path)
